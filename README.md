@@ -1,23 +1,43 @@
 # Cross compiling with `Docker`
-The manual process sets some environment variables and writes to config files on your host machine. Thus it can be difficult to remember these changes when you want to remove or upgrade the cross compiler or even repeat that process for different versions of rust on the same machine.
+The native process, as described in https://github.com/Ogeon/rust-on-raspberry-pi, for cross-compiling for the Raspberry Pi sets some environment variables and writes to config files on your host machine. Thus it can be difficult to remember these changes when you want to remove or upgrade the cross compiler or even repeat that process for different versions of rust on the same machine.
 
-Thats why you can also use `Docker` in order not only to ease the process necessary for building your cross compiler but also for your workstation to stay as it is and keep all changes necessary for the cross compiler to work inside an isolated container.
+To make cross-compiling Rust code for the Raspberry easier you can use the `Docker` image as build from the code in this repository for building your rust code but.
 
 Basically the steps for cross compiling your project with the help of docker look like:
 
-1. Building a `Docker image` which contains the cross compiler
+1. Pulling the `Docker image` from the dockerhub
 2. Running a `Docker container` from that `Docker image` which takes your `rust` project (and it's platform dependencies) and then cross compiles it
 
-## Prerequisites
-* `Docker` 1.9
-* Optional: Prefetched platform dependencies (e.g. `openssl`)
+You can optionally build the docker image yourself. This may be necessary if depend on stuff
+that is not in the image provided on the dockerhub. See section "Building your own Docker image" for
+a detailed instruction on how to build the image yourself.
+
+## Cross compiling your project with the image from the dockerhub
+
+You need to pull the image first from the dockerhub (assuming you have docker installed):
+```
+docker pull ragnaroek/rust-raspberry:<version>
+```
+where `<version>` is the Rust compiler version. The docker images are provided starting from
+version 1.12.0.
+
+If you successfully pulled the `Docker image` containing the cross compiler, you can cross compile your project:
+```
+$ docker run \
+    --volume <path to your rust project directory>:/home/cross/project \
+    --volume <path to directory containing the platform dependencies>:/home/cross/deb-deps \ # optional, see section "Platform dependencies"
+    ragnaroek/rust-raspberry:<version>
+    <cargo command> # e.g. "build --release"
+```
+
+The compiled project can then be found in your `target` directory.
 
 ### Platform dependencies (optional)
 *NOTE*: Only Raspbian `.deb` files are supported currently (but we appreciate patches for other formats)
 
 Let's say your project uses some crate that depends on having openssl
-installed on the system. In this case you have download the correspondig Raspbian `.deb` packages
-into a folder on your host system and then mount this directory into your `docker` container (See section "Cross compiling your project").
+installed on the system. In this case you have download the corresponding Raspbian `.deb` packages
+into a folder on your host system and then mount this directory into your `docker` container (See section "Cross compiling your project ...").
 
 Get these packages either from the raspberry, or download them online.
 
@@ -36,7 +56,7 @@ If it's not there, see if it is still on the raspberry under
 
 If you still can't find it, try searching for the filename online.
 
-## Building the Docker image
+## Building your own Docker image
 ```
 $ git clone https://github.com/Ogeon/rust-on-raspberry-pi.git
 $ cd rust-on-raspberry-pi/docker
@@ -49,14 +69,10 @@ $ docker build \
 
 By setting different tags for your `Docker image` and `RUST_VERSION` you could easily build images for different version of rust and use them as need.
 
-## Cross compiling your project
-If you successfully built the `Docker image` containing the cross compiler, you can finally cross compile your project:
-```
-$ docker run \
-    --volume <path to your rust project directory>:/home/cross/project \
-    --volume <path to directory containing the platform dependencies>:/home/cross/deb-deps \ # optional, see section "Platform dependencies"
-    <tag of your previously built docker image> \ # e.g. "rust-nightly-pi-cross"
-    <cargo command> # e.g. "build --release"
-```
+Cross-compiling with your own build image works exactly as with the one pulled from the dockerhub.
+Just replace `ragnaroek/rust-raspberry:<version>` with your own image name.
 
-The compiled project can then be found in your `target` directory.
+## Credits and History
+
+The initial docker image was written by [schnupperboy](https://github.com/schnupperboy) and maintained by [Ogeon](https://github.com/Ogeon/). This repository contains a copy of the docker part that originally
+lived in this repository: https://github.com/Ogeon/rust-on-raspberry-pi
