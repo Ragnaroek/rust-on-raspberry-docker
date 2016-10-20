@@ -5,7 +5,7 @@ ARG RUST_VERSION=stable
 
 # update system
 RUN apt-get update
-RUN apt-get install -y curl git gcc
+RUN apt-get install -y curl git gcc xz-utils
 
 # config and set variables
 #

@@ -7,7 +7,8 @@ if [ -d "$HOME/deb-deps" ]; then
 
 	for i in `find $HOME/deb-deps -name "*.deb" -type f`; do
     	echo "Extracting: $i";
-    	ar p $i data.tar.gz | tar zx;
+    	ar -p $i data.tar.xz > "$i.tar.xz";
+			tar xf "$i.tar.xz"
 	done
 fi
 
