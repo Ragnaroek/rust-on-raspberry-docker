@@ -58,7 +58,7 @@ If you still can't find it, try searching for the filename online.
 
 ## Building your own Docker image
 ```
-$ git clone https://github.com/Ogeon/rust-on-raspberry-pi.git
+$ git clone https://github.com/Ragnaroek/rust-on-raspberry-docker
 $ cd rust-on-raspberry-pi/docker
 $ docker build \
     --build-arg PI_TOOLS_GIT_REF=<branch/tag/commit> \ # defaults to "master"
