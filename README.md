@@ -1,3 +1,5 @@
+[![DockerHub](https://img.shields.io/badge/DockerHub-1.12.1-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
+
 # Cross compiling with `Docker`
 The native process, as described in https://github.com/Ogeon/rust-on-raspberry-pi, for cross-compiling for the Raspberry Pi sets some environment variables and writes to config files on your host machine. Thus it can be difficult to remember these changes when you want to remove or upgrade the cross compiler or even repeat that process for different versions of rust on the same machine.
 
