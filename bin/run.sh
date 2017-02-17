@@ -28,5 +28,4 @@ export CC="$TOOLCHAIN/gcc-sysroot";
 export AR="$TOOLCHAIN/arm-linux-gnueabihf-ar";
 
 flags="--target=arm-unknown-linux-gnueabihf";
-$HOME/.cargo/bin/cargo clean;
 $HOME/.cargo/bin/cargo $@ $flags;
