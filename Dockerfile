@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stretch
 
 ARG PI_TOOLS_GIT_REF=master
 ARG RUST_VERSION=stable
