@@ -1,5 +1,3 @@
-[![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/badge.svg?style=beer-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker)  [![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/make-wish.svg?style=flat-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker?focus=wish)
-
 [![DockerHub](https://img.shields.io/badge/DockerHub-1.22.1-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
 
 # Cross compiling with `Docker`
@@ -81,3 +79,7 @@ Just replace `ragnaroek/rust-raspberry:<version>` with your own image name.
 
 The initial docker image was written by [schnupperboy](https://github.com/schnupperboy) and maintained by [Ogeon](https://github.com/Ogeon/). This repository contains a copy of the docker part that originally
 lived in this repository: https://github.com/Ogeon/rust-on-raspberry-pi
+
+## Support
+
+[![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/badge.svg?style=beer-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker)  [![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/make-wish.svg?style=flat-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker?focus=wish)
