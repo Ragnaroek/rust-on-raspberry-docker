@@ -23,7 +23,8 @@ fi
 
 #Include the cross compilation binaries
 export PATH=$TOOLCHAIN:$PATH;
-export SYSROOT="$HOME/pi-tools/arm-bcm2708/arm-bcm2708hardfp-linux-gnueabi/arm-bcm2708hardfp-linux-gnueabi/sysroot";
+export SYSROOT="$HOME/pi-tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot";
+
 export CC="$TOOLCHAIN/gcc-sysroot";
 export AR="$TOOLCHAIN/arm-linux-gnueabihf-ar";
 
