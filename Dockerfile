@@ -5,7 +5,7 @@ ARG RUST_VERSION=stable
 
 # update system
 RUN apt-get update
-RUN apt-get install -y curl git gcc xz-utils
+RUN apt-get install -y curl git gcc xz-utils sudo pkg-config unzip
 
 # config and set variables
 #
@@ -13,6 +13,8 @@ RUN apt-get install -y curl git gcc xz-utils
 # in order to access files from the shared volumes.
 # https://medium.com/@brentkearney/docker-on-mac-os-x-9793ac024e94
 RUN groupadd --system cross && useradd --create-home --system --gid cross --uid 1000 cross;
+RUN adduser cross sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER cross
 ENV HOME=/home/cross
 ENV URL_GIT_PI_TOOLS=https://github.com/raspberrypi/tools.git \
