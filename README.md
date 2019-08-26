@@ -64,6 +64,34 @@ If it's not there, see if it is still on the raspberry under
 
 If you still can't find it, try searching for the filename online.
 
+### Additional build setup script
+
+In order to setup the environment or do other additional processing you can define a script
+`post-install.sh` in your folder with dependencies. This script will be `source`-d in the shell used
+to do the build, so any environment variables you export will be available to the `cargo` process.
+
+This script will take two arguments:
+
+    - the first argument is SYSROOT, the folder where all the cross compile headers and libraries
+      are present
+    - the second argument is your dependency folder, you can process any non debian dependencies you
+      may have pre-downloaded there
+
+### Cross compiling C dependencies
+
+Your project may directly or indirectly depend on C libraries. The
+[cc](https://github.com/alexcrichton/cc-rs/) crate is a common approach used in the ecosystem to
+compile C libraries. Please see its documentation, and possibly implementation, for how to set the
+right environment variables.
+
+Also note that `cargo` and `rustc` will compile code for two environments:
+
+    - the build scripts are compiled in the context of the host environment (x86\_64)
+    - your code is compiled for armv7 (a 32 bit environment)
+
+When changing the environment variables you must ensure that you keep both environments working.
+
+
 ## Building your own Docker image
 ```
 $ git clone https://github.com/Ragnaroek/rust-on-raspberry-docker
