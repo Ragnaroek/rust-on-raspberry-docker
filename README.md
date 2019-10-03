@@ -1,8 +1,8 @@
-[![DockerHub](https://img.shields.io/badge/DockerHub-1.37.0-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
+[![DockerHub](https://img.shields.io/badge/DockerHub-1.38.0-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
 
 # Updates
 
-Since Rust version `1.23.0` the docker images is based on `Debian stretch`. Please report any issues you have
+Beginning with Rust version `1.39.0` the docker images will be based on `Debian buster`. Please report any issues you have
 with this update in the issue section of this repo.
 
 # Cross compiling with `Docker`
