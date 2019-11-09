@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 
 ARG PI_TOOLS_GIT_REF=master
 ARG RUST_VERSION=stable
