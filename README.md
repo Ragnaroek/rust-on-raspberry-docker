@@ -1,4 +1,4 @@
-[![DockerHub](https://img.shields.io/badge/DockerHub-1.40.0-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
+[![DockerHub](https://img.shields.io/badge/DockerHub-1.41.0-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
 
 # Updates
 
