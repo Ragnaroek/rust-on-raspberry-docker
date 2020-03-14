@@ -6,6 +6,8 @@ set -u
 curl https://sh.rustup.rs -sSf > $HOME/install_rustup.sh
 sh $HOME/install_rustup.sh -y --default-toolchain $RUST_VERSION
 $HOME/.cargo/bin/rustup target add arm-unknown-linux-gnueabihf
+$HOME/.cargo/bin/rustup update nightly
+$HOME/.cargo/bin/rustup target add wasm32-unknown-unknown --toolchain nightly
 
 # install pi tools
 if [ $PI_TOOLS_GIT_REF = master ]; \
