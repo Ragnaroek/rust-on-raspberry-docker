@@ -1,5 +1,8 @@
 [![DockerHub](https://img.shields.io/badge/DockerHub-1.45.2-blue.svg)](https://hub.docker.com/r/ragnaroek/rust-raspberry/)
 
+[![Github Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&link=https://github.com/sponsors/Ragnaroek)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A24SWQT3P5DY2&source=url)
+
 # Updates
 
 Beginning with Rust version `1.39.0` the docker images will be based on `Debian buster`. Please report any issues you have
@@ -112,7 +115,3 @@ Just replace `ragnaroek/rust-raspberry:<version>` with your own image name.
 
 The initial docker image was written by [schnupperboy](https://github.com/schnupperboy) and maintained by [Ogeon](https://github.com/Ogeon/). This repository contains a copy of the docker part that originally
 lived in this repository: https://github.com/Ogeon/rust-on-raspberry-pi
-
-## Support
-
-[![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/badge.svg?style=beer-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker)  [![Beerpay](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker/make-wish.svg?style=flat-square)](https://beerpay.io/Ragnaroek/rust-on-raspberry-docker?focus=wish)
