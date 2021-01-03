@@ -44,6 +44,7 @@ $ docker run \
 The compiled project can then be found in your `target` directory.
 
 ### Platform dependencies (optional)
+
 *NOTE*: Only Raspbian `.deb` files are supported currently (but we appreciate patches for other formats)
 
 Let's say your project uses some crate that depends on having openssl
@@ -52,7 +53,29 @@ into a folder on your host system and then mount this directory into your `docke
 
 Get these packages either from the raspberry, or download them online.
 
-If you do `apt-cache show libssl1.0.0` on the raspberry, you'll see this in the
+#### Using apt-get to fetch packages
+From a debian-based system, you may use apt-get in order to fetch packages directly from the raspbian archives. A script is provided for these 
+purposes in the `apt/` folder.
+
+Here is how you would download libssl1.0 and all of its dependencies. 
+```
+$ cd apt/
+# Install the raspbian keys into your local apt keychain
+$ sudo ./install-keys.sh
+$ ./download.sh libssl1.0
+```
+
+You can also download a single deb file without recursing:
+```
+apt-get -c ./apt.conf download libssl1.0
+```
+
+If ran multiple times, only missing packages will be downloaded.
+
+
+#### Adding files manually
+
+If you do `apt-cache show libssl1.0` on the raspberry, you'll see this in the
 output:
 
     Filename:    pool/main/o/openssl/libssl1.0.0_1.0.1e-2+rvt+deb7u17_armhf.deb

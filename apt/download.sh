@@ -11,9 +11,10 @@ PACKAGES="$@"
 
 mkdir -p ./apt-tmp/
 
-if [ ! -f ./apt-tmp/status ]; then
+if [ ! -f ./apt-tmp/.update-done ]; then
   touch apt-tmp/status
   apt-get -c ./apt.conf update
+  touch ./apt-tmp/.update-done
 fi
 
 ALL_DEPS=$(apt-cache -c ./apt.conf depends --recurse --no-recommends --no-suggests \
