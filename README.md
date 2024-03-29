@@ -5,7 +5,7 @@
 
 # Updates
 
-Beginning with Rust version `1.39.0` the docker images will be based on `Debian buster`. Please report any issues you have
+Beginning with Rust version `1.78.0` the docker images will be based on `Debian bookworm`. Please report any issues you have
 with this update in the issue section of this repo.
 
 # Cross compiling with `Docker`
